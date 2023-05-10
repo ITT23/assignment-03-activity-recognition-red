@@ -4,7 +4,7 @@ from DIPPID import SensorUDP
 import csv
 
 # use UPD (via WiFi) for communication
-PORT = 5701
+PORT = 5700
 sensor = SensorUDP(PORT)
 
 capture_data = False
