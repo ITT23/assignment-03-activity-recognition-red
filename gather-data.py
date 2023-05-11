@@ -2,6 +2,9 @@
 import time
 from DIPPID import SensorUDP
 import csv
+import helpers
+from helpers.arg_parser import get_parsed_arguments
+#from helpers import arg_parser
 
 # use UPD (via WiFi) for communication
 PORT = 5700
@@ -9,8 +12,9 @@ sensor = SensorUDP(PORT)
 
 capture_data = False
 start_time = 0
-label = "standing"
-number = 0
+args  = helpers.arg_parser.get_parsed_arguments()
+label = args.activity#"standing"
+number = args.number #0
 
 headers= ['timestamp', 'accelerometer_x', 'accelerometer_y', 'accelerometer_z', 'gyroscope_x', 'gyroscope_y', 'gyroscope_z', 'gravity_x', 'gravity_y', 'gravity_z', 'activity']
 data =[]
