@@ -1,17 +1,15 @@
 # this program recognizes activities
 import pandas as pd
-from sklearn import svm
-from sklearn.preprocessing import scale, StandardScaler, MinMaxScaler
-from sklearn import svm
+from sklearn.preprocessing import scale, MinMaxScaler
+from sklearn import svm, preprocessing
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
 from DIPPID import SensorUDP
 import time
-from sklearn import preprocessing
-from sklearn.metrics import accuracy_score, confusion_matrix,classification_report
 
 
 # use UPD (via WiFi) for communication
-PORT = 5700
+PORT = 5701
 sensor = SensorUDP(PORT)
 
 
@@ -23,7 +21,6 @@ for i in range(0, 9):
         new_data = pd.read_csv(f'./data/data_{act}_{i}.csv')
         frames = [data, new_data]
         data = pd.concat(frames)
-#print(data.shape)
 
 sensor_data = pd.DataFrame(data.drop(['activity','timestamp'],axis=1))
 labels = data.activity.values.astype(object)
@@ -59,10 +56,26 @@ classifier = svm.SVC(kernel='linear')
 #classifier = svm.SVC(kernel='rbf') # non-linear classifier
 
 
-classifier.fit(X_train, y_train) 
+classifier.fit(X_train.values, y_train)
 
 #y_pred_train = classifier.predict(X_train)
 y_pred_test=classifier.predict(X_test)
 
 print('Model accuracy score with linear kernel and C=1000.0 : {0:0.4f}'. format(accuracy_score(y_test, y_pred_test)))
 
+while(True):
+    acc_x = float(sensor.get_value('accelerometer')['x'])
+    acc_y = float(sensor.get_value('accelerometer')['y'])
+    acc_z = float(sensor.get_value('accelerometer')['z'])
+
+    gyr_x = float(sensor.get_value('gyroscope')['x'])
+    gyr_y = float(sensor.get_value('gyroscope')['y'])
+    gyr_z = float(sensor.get_value('gyroscope')['z'])
+
+    grav_x = float(sensor.get_value('gravity')['x'])
+    grav_y = float(sensor.get_value('gravity')['y'])
+    grav_z = float(sensor.get_value('gravity')['z'])
+
+    pred = classifier.predict([[acc_x, acc_y, acc_z, gyr_x, gyr_y, gyr_z, grav_x, grav_y, grav_z]])
+    print(encoder.classes_[pred])
+    time.sleep(0.1)

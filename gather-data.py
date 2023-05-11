@@ -3,8 +3,6 @@ import time
 from DIPPID import SensorUDP
 import csv
 import helpers
-from helpers.arg_parser import get_parsed_arguments
-#from helpers import arg_parser
 
 # use UPD (via WiFi) for communication
 PORT = 5700
@@ -12,9 +10,8 @@ sensor = SensorUDP(PORT)
 
 capture_data = False
 start_time = 0
-args  = helpers.arg_parser.get_parsed_arguments()
-label = args.activity#"standing"
-number = args.number #0
+label = "punching"
+number = 4
 
 headers= ['timestamp', 'accelerometer_x', 'accelerometer_y', 'accelerometer_z', 'gyroscope_x', 'gyroscope_y', 'gyroscope_z', 'gravity_x', 'gravity_y', 'gravity_z', 'activity']
 data =[]
@@ -34,7 +31,7 @@ while (True):
     if sensor.has_capability('button_1'):
         button_1 = sensor.get_value('button_1')
         if int(button_1) == 1 and not capture_data:
-            print("started")
+            print("data collection started")
             capture_data = True
             start_time = time.time()
 
@@ -57,7 +54,7 @@ while (True):
 
             if duration > 10:
                 save_data()
-                print("end")
+                print("end of data collection")
                 break
     
     time.sleep(0.01)
