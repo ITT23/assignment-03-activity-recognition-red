@@ -7,9 +7,8 @@ from sklearn.metrics import accuracy_score
 from DIPPID import SensorUDP
 import time
 
-
 # use UPD (via WiFi) for communication
-PORT = 5701
+PORT = 5700
 sensor = SensorUDP(PORT)
 
 
@@ -79,3 +78,5 @@ while(True):
     pred = classifier.predict([[acc_x, acc_y, acc_z, gyr_x, gyr_y, gyr_z, grav_x, grav_y, grav_z]])
     print(encoder.classes_[pred])
     time.sleep(0.1)
+
+
