@@ -2,16 +2,15 @@
 import time
 from DIPPID import SensorUDP
 import csv
-import helpers
 
 # use UPD (via WiFi) for communication
-PORT = 5700
+PORT = 5701
 sensor = SensorUDP(PORT)
 
 capture_data = False
 start_time = 0
-label = "punching"
-number = 4
+label = "waving"
+number = 3
 
 headers= ['timestamp', 'accelerometer_x', 'accelerometer_y', 'accelerometer_z', 'gyroscope_x', 'gyroscope_y', 'gyroscope_z', 'gravity_x', 'gravity_y', 'gravity_z', 'activity']
 data =[]
@@ -38,17 +37,20 @@ while (True):
         if capture_data:
             duration = round(time.time() - start_time, 2)
 
-            acc_x = float(sensor.get_value('accelerometer')['x'])
-            acc_y = float(sensor.get_value('accelerometer')['y'])
-            acc_z = float(sensor.get_value('accelerometer')['z'])
+            if sensor.has_capability('accelerometer'):
+                acc_x = float(sensor.get_value('accelerometer')['x'])
+                acc_y = float(sensor.get_value('accelerometer')['y'])
+                acc_z = float(sensor.get_value('accelerometer')['z'])
 
-            gyr_x = float(sensor.get_value('gyroscope')['x'])
-            gyr_y = float(sensor.get_value('gyroscope')['y'])
-            gyr_z = float(sensor.get_value('gyroscope')['z'])
+            if sensor.has_capability('gyroscope'):
+                gyr_x = float(sensor.get_value('gyroscope')['x'])
+                gyr_y = float(sensor.get_value('gyroscope')['y'])
+                gyr_z = float(sensor.get_value('gyroscope')['z'])
 
-            grav_x = float(sensor.get_value('gravity')['x'])
-            grav_y = float(sensor.get_value('gravity')['y'])
-            grav_z = float(sensor.get_value('gravity')['z'])
+            if sensor.has_capability('gravity'):
+                grav_x = float(sensor.get_value('gravity')['x'])
+                grav_y = float(sensor.get_value('gravity')['y'])
+                grav_z = float(sensor.get_value('gravity')['z'])
 
             data.append([duration, acc_x, acc_y, acc_z, gyr_x, gyr_y, gyr_z, grav_x, grav_y, grav_z, label])
 
