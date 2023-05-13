@@ -4,13 +4,13 @@ from DIPPID import SensorUDP
 import csv
 
 # use UPD (via WiFi) for communication
-PORT = 5701
+PORT = 5700
 sensor = SensorUDP(PORT)
 
 capture_data = False
 start_time = 0
-label = "waving"
-number = 3
+label = "punching"
+number = 9
 
 headers= ['timestamp', 'accelerometer_x', 'accelerometer_y', 'accelerometer_z', 'gyroscope_x', 'gyroscope_y', 'gyroscope_z', 'gravity_x', 'gravity_y', 'gravity_z', 'activity']
 data =[]
