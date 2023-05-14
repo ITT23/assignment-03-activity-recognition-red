@@ -3,6 +3,7 @@
 ## What are some common use cases for machine learning in practical applications or research prototypes?
 
 Kostakos and Musolesi (2017) mention a few use cases for machine learning. One of them involves activity recognition, i.e. identifying activities such as waving or standing using machine learning. Modeling human behavior is also a popular use case for machine learning. In this scenario, the authors note that one should distinguish using the classical statistical methods of machine learning and the neural-network-based approaches. Reasons for this mention will be further explained in the answer to question 2. Furthermore, machine learning is used to develop novel user-interface techniques such as reacting to user input or optimizing system resources (Kostakos & Musolesi, 2017). The last use case they mentioned in the paper is the prediction of users' activities and interactions.
+Sculley et al. (2014) only mention a system that uses machine learning for predicting the click through rate of websites.
 
 ## Which problems of machine learning do the authors of the papers identify?
 
