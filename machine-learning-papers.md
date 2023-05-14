@@ -14,7 +14,9 @@ Kostakos and Musolesi (2017) identified more general problems of the usage of ma
 
 Vassilis Kostakos is a Professor of Human-Computer-Interaction at the University of Melbourne. He does not mention machine learning as one of his research interests (Kostakos, 2023), but he already has published a few papers using machine learning methods or about machine learning(Giannakos et al., 2019;  van Berkel et al., 2016; van Berkel et al., 2019).
 Mirco Musolesi is a Professor of Computer Science at University of Bologna and at University College London, where he also leads the Machine Intelligence Lab (Musolesi, 2023). He published many papers in the field of machine learning in the last few years. His focus was especially on deep learning and reinforcement learning (Musolesi, 2023).
-
+D. Sculley is currently the CEO of kaggle. He is especially interested in large scaled machine learning problems, and has published published many different papers in regards to ML-related topics. (Sculley, 2023)
+Daniel Golovin is the founder of Vizier (Golovin et al., 2017) and also published some other research regarding ML (Golovin, 2023). Gary R. Holt and Todd Phillips also have listed 'Machine Intelligence' as Research topics, but have both only published 2 papers in general (Holt, 2023; Phillips, 2023). 
+There isn't much information about the other authors of the paper 'Machine Learning The High-Interest Credit Card of Technical Debt' (Sculley et al., 2014), but most authors of the paper have a past at Google, or a currently still working and researching for Google.
 
 ### Table of Contents:
 
@@ -32,5 +34,7 @@ Van Berkel, N., Luo, C., Anagnostopoulos, T., Ferreira, D., Goncalves, J., Hosio
 
 Van Berkel, N., Goncalves, J., Hettiachchi, D., Wijenayake, S., Kelly, R. M., & Kostakos, V. (2019). Crowdsourcing perceptions of fair predictors for machine learning: A recidivism case study. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW), 1-21.
 
+Sculley, D. (2023). Retrived from: https://research.google/people/
 
+Golovin, D., Solnik, B., Moitra, S., Kochanski, G., Karro, J., & Sculley, D. (2017, August). Google vizier: A service for black-box optimization. In Proceedings of the 23rd ACM SIGKDD international conference on knowledge discovery and data mining (pp. 1487-1495).
 
