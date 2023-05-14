@@ -10,6 +10,7 @@ from DIPPID import SensorUDP
 PORT = 5700
 sensor = SensorUDP(PORT)
 
+# Training-split and label encoding as seen on: https://www.datacamp.com/tutorial/svm-classification-scikit-learn-python
 
 def main():
     data = get_datasets()

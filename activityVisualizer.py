@@ -91,7 +91,6 @@ class Visualizer:
     def update(self, delta_time):
         pred = continous_prediction(classifier=self.classifier,
                                     encoder=self.encoder)
-        print(self.encoder.classes_[pred])
 
         if not self.startScreen:
             self.predictions.append(pred[0])
