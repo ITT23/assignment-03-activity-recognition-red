@@ -26,9 +26,20 @@ standingImage = pyglet.image.load(standingImagePath)
 
 # img = Image.open(punchingImagePath)
 # new_img = img.resize((800,600))
-# new_img.save('Images/standing_image_60.jpg')
+# new_img.save('Images/punching_image.jpg')
+
+# img2 = Image.open(wavingImagePath)
+# new_img2 = img2.resize((800,600))
+# new_img2.save('Images/waving_image.jpg')
+
+# img3 = Image.open(standingImagePath)
+# new_img3 = img3.resize((800,600))
+# new_img3.save('Images/standing_image.jpg')
+
 
 """Visualizer class that contains different sprites and controls the switching"""
+
+
 class Visualizer:
     def __init__(self):
         self.punchingSprite = pyglet.sprite.Sprite(img=punchingImage)
@@ -46,7 +57,7 @@ class Visualizer:
                               font_name='Times New Roman',
                               font_size=36,
                               x=WINDOW_WIDTH / 2,
-                              y=WINDOW_HEIGHT - WINDOW_HEIGHT/3,
+                              y=WINDOW_HEIGHT - WINDOW_HEIGHT / 3,
                               anchor_x='center',
                               anchor_y='center').draw()
             pyglet.text.Label(
@@ -76,6 +87,7 @@ class Visualizer:
             self.currentImage.draw()
 
     """continously update data and set new Image"""
+
     def update(self, delta_time):
         pred = continous_prediction(classifier=self.classifier,
                                     encoder=self.encoder)
